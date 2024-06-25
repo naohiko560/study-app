@@ -26,3 +26,7 @@ button {
 .display-none {
   display: none;
 }
+
+.answer-button {
+  background-color: #04ff00;
+}

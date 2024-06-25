@@ -7,6 +7,10 @@ const buttons = document.querySelectorAll('.js-checkAnswer');
 // 押したボタンの数字を定義
 let buttonText;
 
+// 音声ファイルの初期化
+const correctAudio = new Audio('./sound/correct.mp3');
+const incorrectAudio = new Audio('./sound/incorrect.mp3');
+
 // 2つの数字をランダムに生成
 function generateNumbers() {
   num1 = Math.floor(Math.random() * 6);
@@ -22,6 +26,7 @@ function displayProblem() {
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     buttonText = Number(button.textContent);
+    button.classList.add('answer-button')
     checkAnswer();
   });
 });
@@ -30,11 +35,16 @@ buttons.forEach((button) => {
 function checkAnswer() {
   const correctAnswer = num1 + num2;
 
+   buttons.disabled = true;
+
   if (buttonText === correctAnswer) {
     document.getElementById('js-result').textContent = '正解！よくできました 🎉';
+    correctAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   } else {
     document.getElementById('js-result').textContent = '残念、不正解です 😢';
+    document.getElementById('js-correct').textContent = `正解は、${correctAnswer}でした。`;
+    incorrectAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   }
 }
@@ -43,6 +53,12 @@ function checkAnswer() {
 function nextProblem() {
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-next').classList.add('display-none');
+  document.getElementById('js-correct').textContent = '';
+
+  buttons.forEach((button) => {
+    button.classList.remove('answer-button');
+  });
+
   displayProblem();
 }
 
