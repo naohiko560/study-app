@@ -3,10 +3,6 @@ body {
   text-align: center;
 }
 
-.container {
-  height: 100vh;
-}
-
 input[type="text"
 
 ] {
@@ -14,12 +10,20 @@ input[type="text"
   padding: 5px;
 }
 
-.title {
+.h-l {
   font-size: 24px;
   text-align-last: left;
   margin-left: 20px;
   margin-bottom: 0;
   margin-top: 10px;
+}
+
+.h-l a {
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 10px;
+  margin-left: 10px;
 }
 
 button {
