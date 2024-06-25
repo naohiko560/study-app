@@ -1,26 +1,50 @@
-// Generate random numbers for the math quiz
+// 生成する問題文の数字
 let num1, num2;
+
+// ボタンの数を取得
+const buttons = document.querySelectorAll('.js-checkAnswer');
+
+// 押したボタンの数字を定義
+let buttonText;
+
+// 2つの数字をランダムに生成
 function generateNumbers() {
-  num1 = Math.floor(Math.random() * 10);
-  num2 = Math.floor(Math.random() * 10);
+  num1 = Math.floor(Math.random() * 6);
+  num2 = Math.floor(Math.random() * 6);
 }
-// Display a math problem for the user to solve
+// 問題文の表示
 function displayProblem() {
   generateNumbers();
-  document.getElementById('problem').textContent = `${num1} + ${num2} =`;
+  document.getElementById('js-problem').textContent = `${num1} + ${num2} =`;
 }
-// Check the user's answer
+
+// 押したボタンの数字を取得
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    buttonText = Number(button.textContent);
+    checkAnswer();
+  });
+});
+
+// 正解不正解を判定
 function checkAnswer() {
-  const answer = parseInt(document.getElementById('answer').value);
   const correctAnswer = num1 + num2;
 
-  if (answer === correctAnswer) {
-    document.getElementById('result').textContent = 'Correct! 🎉';
+  if (buttonText === correctAnswer) {
+    document.getElementById('js-result').textContent = '正解！よくできました 🎉';
+    document.getElementById('js-next').classList.remove('display-none');
   } else {
-    document.getElementById('result').textContent = 'Incorrect. Try again!';
+    document.getElementById('js-result').textContent = '残念、不正解です 😢';
+    document.getElementById('js-next').classList.remove('display-none');
   }
-  // Display a new problem
+}
+
+// 次の問題を表示を押したとき
+function nextProblem() {
+  document.getElementById('js-result').textContent = '';
+  document.getElementById('js-next').classList.add('display-none');
   displayProblem();
 }
-// Initialize the app
+
+// アプリの初期化
 displayProblem();

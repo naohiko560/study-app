@@ -4,17 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Quiz App</title>
+  <title>足し算ゲーム</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>Math Quiz</h1>
-    <div id="problem"></div>
-    <input type="text" id="answer">
-    <button onclick="checkAnswer()">Check Answer</button>
-    <p id="result"></p>
+    <h1>足し算ゲーム</h1>
+    <div id="js-problem"></div>
+    <div class="button-lists">
+      <button class="js-checkAnswer">0</button>
+      <button class="js-checkAnswer">1</button>
+      <button class="js-checkAnswer">2</button>
+      <button class="js-checkAnswer">3</button>
+      <button class="js-checkAnswer">4</button>
+      <button class="js-checkAnswer">5</button>
+    </div>
+    <div class="button-lists">
+      <button class="js-checkAnswer">6</button>
+      <button class="js-checkAnswer">7</button>
+      <button class="js-checkAnswer">8</button>
+      <button class="js-checkAnswer">9</button>
+      <button class="js-checkAnswer">10</button>
+    </div>
+    <p id="js-result"></p>
+    <button class="display-none" id="js-next" onclick="nextProblem()">次の問題</button>
   </div>
 
   <script src="script.js"></script>
