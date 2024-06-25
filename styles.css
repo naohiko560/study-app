@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  margin-top: 50px;
+  height: 100vh;
 }
 
 input[type="text"
@@ -12,6 +12,14 @@ input[type="text"
 ] {
   margin-top: 10px;
   padding: 5px;
+}
+
+.title {
+  font-size: 24px;
+  text-align-last: left;
+  margin-left: 20px;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 button {
@@ -32,7 +40,7 @@ button {
 }
 
 .problem {
-  font-size: 90px;
+  font-size: 60px;
 }
 
 .button-lists {
@@ -40,26 +48,26 @@ button {
 }
 
 .js-checkAnswer {
-  font-size: 50px;
   padding: 10px 40px;
+  font-size: 30px;
 }
 
 .result {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 35px;
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 30px;
 }
 
 .correct {
-  font-size: 40px;
   margin: 0;
+  font-size: 25px;
 }
 
 .next {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .correct-num {
-  font-size: 100px;
+  font-size: 60px;
   margin: 0;
 }

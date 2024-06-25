@@ -36,12 +36,12 @@ function checkAnswer() {
   const correctAnswer = num1 + num2;
 
   if (buttonText === correctAnswer) {
-    document.getElementById('js-result').textContent = '正解！よくできました 🎉';
+    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     correctAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   } else {
-    document.getElementById('js-result').textContent = '残念、不正解です 😢';
-    document.getElementById('js-correct').textContent = '正解は、';
+    document.getElementById('js-result').textContent = 'ざんねん 😢';
+    document.getElementById('js-correct').textContent = 'せいかいは、';
     document.getElementById('js-correct-num').textContent = correctAnswer;
 
     incorrectAudio.play();
