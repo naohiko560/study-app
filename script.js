@@ -19,7 +19,7 @@ function generateNumbers() {
 // 問題文の表示
 function displayProblem() {
   generateNumbers();
-  document.getElementById('js-problem').textContent = `${num1} + ${num2} =`;
+  document.getElementById('js-problem').textContent = `${num1} + ${num2}`;
 }
 
 // 押したボタンの数字を取得
@@ -35,15 +35,15 @@ buttons.forEach((button) => {
 function checkAnswer() {
   const correctAnswer = num1 + num2;
 
-   buttons.disabled = true;
-
   if (buttonText === correctAnswer) {
     document.getElementById('js-result').textContent = '正解！よくできました 🎉';
     correctAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   } else {
     document.getElementById('js-result').textContent = '残念、不正解です 😢';
-    document.getElementById('js-correct').textContent = `正解は、${correctAnswer}でした。`;
+    document.getElementById('js-correct').textContent = '正解は、';
+    document.getElementById('js-correct-num').textContent = correctAnswer;
+
     incorrectAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   }
@@ -54,6 +54,7 @@ function nextProblem() {
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-next').classList.add('display-none');
   document.getElementById('js-correct').textContent = '';
+  document.getElementById('js-correct-num').textContent = '';
 
   buttons.forEach((button) => {
     button.classList.remove('answer-button');

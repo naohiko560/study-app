@@ -11,25 +11,28 @@
 <body>
   <div class="container">
     <h1>足し算ゲーム</h1>
-    <div id="js-problem"></div>
+    <div class="problem" id="js-problem"></div>
     <div class="button-lists">
-      <button class="js-checkAnswer">0</button>
-      <button class="js-checkAnswer">1</button>
-      <button class="js-checkAnswer">2</button>
-      <button class="js-checkAnswer">3</button>
-      <button class="js-checkAnswer">4</button>
-      <button class="js-checkAnswer">5</button>
+      <div class="button-list">
+        <button class="js-checkAnswer">0</button>
+        <button class="js-checkAnswer">1</button>
+        <button class="js-checkAnswer">2</button>
+        <button class="js-checkAnswer">3</button>
+        <button class="js-checkAnswer">4</button>
+        <button class="js-checkAnswer">5</button>
+      </div>
+      <div class="button-list">
+        <button class="js-checkAnswer">6</button>
+        <button class="js-checkAnswer">7</button>
+        <button class="js-checkAnswer">8</button>
+        <button class="js-checkAnswer">9</button>
+        <button class="js-checkAnswer">10</button>
+      </div>
     </div>
-    <div class="button-lists">
-      <button class="js-checkAnswer">6</button>
-      <button class="js-checkAnswer">7</button>
-      <button class="js-checkAnswer">8</button>
-      <button class="js-checkAnswer">9</button>
-      <button class="js-checkAnswer">10</button>
-    </div>
-    <p id="js-result"></p>
-    <p id="js-correct"></p>
-    <button class="display-none" id="js-next" onclick="nextProblem()">次の問題</button>
+    <p class="result" id="js-result"></p>
+    <p class="correct" id="js-correct"></p>
+    <p class="correct-num" id="js-correct-num"></p>
+    <button class="display-none next" id="js-next" onclick="nextProblem()">次の問題</button>
   </div>
 
   <script src="script.js"></script>
