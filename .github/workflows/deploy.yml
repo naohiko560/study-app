@@ -3,9 +3,9 @@ on:
     branches:
       - main
     paths:
-      - '*'
+      - '*.git*'
       - '!**/.github/**'
-      - '!**/*.md'
+      - '*.md'
 name: StudyAppDeploy
 jobs:
   FTP-Deploy-Action:
