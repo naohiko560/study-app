@@ -3,9 +3,8 @@ on:
     branches:
       - main
     paths:
-      - '*.git*'
       - '!**/.github/**'
-      - '*.md'
+      - '!**/*.md'
 name: StudyAppDeploy
 jobs:
   FTP-Deploy-Action:
@@ -23,4 +22,3 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           LOCAL_DIR: ./
           REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
-
