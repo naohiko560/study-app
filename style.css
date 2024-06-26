@@ -21,6 +21,10 @@ body {
   list-style: none;
 }
 
+.list:nth-child(n+2) {
+  margin-top: 15px;
+}
+
 .list a {
   text-decoration: none;
   background-color: #007bff;
@@ -28,4 +32,6 @@ body {
   padding: 10px 10px;
   margin-left: 10px;
   font-weight: bold;
+  max-width: 500px;
+  display: block;
 }

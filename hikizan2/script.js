@@ -18,15 +18,15 @@ const incorrectAudio = new Audio('../sound/incorrect.mp3');
 
 // 2つの数字をランダムに生成
 function generateNumbers() {
-  num1 = Math.floor(Math.random() * 6);
-  num2 = Math.floor(Math.random() * 6);
+  num1 = Math.floor(Math.random() * 11);
+  num2 = Math.floor(Math.random() * 11);
 }
 // 問題文の表示
 function displayProblem() {
   generateNumbers();
 
-  // 前回と同じ問題、または数字の和が5より大きいなら再生成
-  while ((num1 === prevNum1 && num2 === prevNum2) || num1 + num2 > 5) {
+  // 前回と同じ問題、または答えがマイナスなら再生成
+  while ((num1 === prevNum1 && num2 === prevNum2) || num1 - num2 < 0) {
     generateNumbers();
   }
 
@@ -34,8 +34,7 @@ function displayProblem() {
   prevNum1 = num1;
   prevNum2 = num2;
 
-  // 問題文を表示
-  document.getElementById('js-problem').textContent = `${num1} + ${num2}`;
+  document.getElementById('js-problem').textContent = `${num1} - ${num2}`;
 }
 
 // 押したボタンの数字を取得
@@ -49,18 +48,20 @@ buttons.forEach((button) => {
 
 // 正解不正解を判定
 function checkAnswer() {
-  const correctAnswer = num1 + num2;
+  const correctAnswer = num1 - num2;
 
   if (buttonText === correctAnswer) {
-    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     correctAudio.play();
+
+    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     document.getElementById('js-next').classList.remove('display-none');
   } else {
+    incorrectAudio.play();
+
     document.getElementById('js-result').textContent = 'ざんねん 😢';
     document.getElementById('js-correct').textContent = 'せいかいは、';
     document.getElementById('js-correct-num').textContent = correctAnswer;
 
-    incorrectAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   }
 }
