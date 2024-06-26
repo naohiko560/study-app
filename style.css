@@ -1,27 +1,42 @@
-body {
+.body {
   font-family: Arial, sans-serif;
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header a img{
+  width: 50px;
+  max-width: 100%;
+  display: block;
 }
 
 .h-l {
   font-size: 24px;
-  text-align-last: left;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .lists {
-  width: 500px;
-  margin: 0 auto;
   margin-top: 50px;
+  text-align: center;
 }
 
 .list {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 30px;
   list-style: none;
 }
 
-.list:nth-child(n+2) {
+.list:nth-child(n + 2) {
   margin-top: 15px;
 }
 
@@ -34,4 +49,5 @@ body {
   font-weight: bold;
   max-width: 500px;
   display: block;
+  border-radius: 10px;
 }

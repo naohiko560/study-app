@@ -13,8 +13,8 @@ const buttons = document.querySelectorAll('.js-checkAnswer');
 let buttonText = null;
 
 // 音声ファイルの初期化
-const correctAudio = new Audio('../sound/correct.mp3');
-const incorrectAudio = new Audio('../sound/incorrect.mp3');
+const correctAudio = new Audio('../sounds/correct.mp3');
+const incorrectAudio = new Audio('../sounds/incorrect.mp3');
 
 // 2つの数字をランダムに生成
 function generateNumbers() {

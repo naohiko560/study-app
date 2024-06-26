@@ -4,30 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>たしざんゲーム</title>
+  <title>たしざんゲーム かんたん</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <div class="container">
-    <h1 class="h-l">たしざんゲーム かんたん<a href="../index.html">ほかのゲームをする</a></h1>
+<body class="body">
+  <header class="header">
+    <a href="../">
+      <img src="../images/home.png" alt="ホームに戻る">
+    </a>
+    <h1 class="h-l">たしざんゲーム かんたん</h1>
+  </header>
+  <div class="main">
     <div class="problem" id="js-problem"></div>
     <div class="button-lists">
       <div class="button-list">
-        <button class="js-checkAnswer">0</button>
-        <button class="js-checkAnswer">1</button>
-        <button class="js-checkAnswer">2</button>
+        <button class="button js-checkAnswer">0</button>
+        <button class="button js-checkAnswer">1</button>
+        <button class="button js-checkAnswer">2</button>
       </div>
       <div class="button-list">
-        <button class="js-checkAnswer">3</button>
-        <button class="js-checkAnswer">4</button>
-        <button class="js-checkAnswer">5</button>
+        <button class="button js-checkAnswer">3</button>
+        <button class="button js-checkAnswer">4</button>
+        <button class="button js-checkAnswer">5</button>
       </div>
     </div>
     <p class="result" id="js-result"></p>
     <p class="correct" id="js-correct"></p>
     <p class="correct-num" id="js-correct-num"></p>
-    <button class="display-none next" id="js-next" onclick="nextProblem()">つぎのもんだい</button>
+    <button class="button display-none next" id="js-next" onclick="nextProblem()">つぎのもんだい</button>
   </div>
 
   <script src="script.js"></script>
