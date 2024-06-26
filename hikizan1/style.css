@@ -23,6 +23,12 @@
   margin-top: 0;
 }
 
+.total {
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
 .main {
   text-align: center;
 }
@@ -35,6 +41,10 @@
   border: none;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.pointer-none {
+  pointer-events: none;
 }
 
 .display-none {

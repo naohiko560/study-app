@@ -63,6 +63,12 @@ function checkAnswer() {
     incorrectAudio.play();
     document.getElementById('js-next').classList.remove('display-none');
   }
+
+  // ボタンを押せなくする
+  buttons.forEach((e) => {
+    e.classList.toggle('pointer-none');
+  });
+
 }
 
 // 次の問題を表示を押したとき
@@ -74,6 +80,11 @@ function nextProblem() {
 
   buttons.forEach((button) => {
     button.classList.remove('answer-button');
+  });
+
+  // ボタンを押せるようにする
+  buttons.forEach((e) => {
+    e.classList.toggle('pointer-none');
   });
 
   displayProblem();

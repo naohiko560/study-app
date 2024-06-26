@@ -1,16 +1,22 @@
 // 生成する問題文の数字
-let num1 = null;
-let num2 = null;
+let num1 = 0;
+let num2 = 0;
 
 // 前回の問題文の数字
-let prevNum1 = null;
-let prevNum2 = null;
+let prevNum1 = 0;
+let prevNum2 = 0;
 
-// ボタンの数を取得
+// ボタンの要素を取得
 const buttons = document.querySelectorAll('.js-checkAnswer');
 
 // 押したボタンの数字を定義
-let buttonText = null;
+let buttonText = 0;
+
+// 解いた問題数
+// let count = 0;
+
+// 全何問出すかを設定
+let total = 5;
 
 // 音声ファイルの初期化
 const correctAudio = new Audio('../sounds/correct.mp3');
@@ -34,10 +40,14 @@ function displayProblem() {
   prevNum1 = num1;
   prevNum2 = num2;
 
+  // 出題数のカウント
+  // count++;
+
+  // 問題文を表示
   document.getElementById('js-problem').textContent = `${num1} - ${num2}`;
 }
 
-// 押したボタンの数字を取得
+// 押したボタンの数字を取得、クラス付与
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     buttonText = Number(button.textContent);
@@ -64,6 +74,15 @@ function checkAnswer() {
 
     document.getElementById('js-next').classList.remove('display-none');
   }
+
+  // ボタンを押せなくする
+  buttons.forEach((e) => {
+    e.classList.toggle('pointer-none');
+  });
+
+  // 残りの問題数を表示
+  // document.getElementById('js-count').textContent = `残り：${count} / ${total}`;
+
 }
 
 // 次の問題を表示を押したとき
@@ -76,6 +95,11 @@ function nextProblem() {
   buttons.forEach((button) => {
     button.classList.remove('answer-button');
   });
+
+  // ボタンを押せるようにする
+  buttons.forEach((e) => {
+    e.classList.toggle('pointer-none');
+  })
 
   displayProblem();
 }

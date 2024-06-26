@@ -37,6 +37,10 @@
   border-radius: 10px;
 }
 
+.pointer-none {
+  pointer-events: none;
+}
+
 .display-none {
   display: none;
 }
