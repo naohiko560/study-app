@@ -1,16 +1,28 @@
 // 生成する問題文の数字
-let num1 = null;
-let num2 = null;
+let num1 = 0;
+let num2 = 0;
 
 // 前回の問題文の数字
-let prevNum1 = null;
-let prevNum2 = null;
+let prevNum1 = 0;
+let prevNum2 = 0;
 
 // ボタンの数を取得
 const buttons = document.querySelectorAll('.js-checkAnswer');
 
 // 押したボタンの数字を定義
-let buttonText = null;
+let buttonText = 0;
+
+// 解いた問題数
+let count = 1;
+
+// 正解した数
+let correctCount = 0;
+
+// 問題数を設定
+let total = 5;
+
+// 最終点数
+let totalPoint = parseInt(correctCount / total);
 
 // 音声ファイルの初期化
 const correctAudio = new Audio('../sounds/correct.mp3');
@@ -25,6 +37,9 @@ function generateNumbers() {
 // 問題文の表示
 function displayProblem() {
   generateNumbers();
+
+  // 問題数の表示
+  document.getElementById('js-total').textContent = `もんだいすう ${count} / ${total}`;
 
   // 前回と同じ問題、または数字の和が10より大きいなら再生成
   while ((num1 === prevNum1 && num2 === prevNum2) || num1 + num2 > 10) {
@@ -52,17 +67,33 @@ buttons.forEach((button) => {
 function checkAnswer() {
   const correctAnswer = num1 + num2;
 
-  if (buttonText === correctAnswer) {
-    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
+  if (buttonText === correctAnswer && count < total) {
     correctAudio.play();
+    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     document.getElementById('js-next').classList.remove('display-none');
-  } else {
+    correctCount++;
+  } else if (buttonText !== correctAnswer && count < total) {
+    incorrectAudio.play();
+    document.getElementById('js-result').textContent = 'ざんねん 😢';
+    document.getElementById('js-correct').textContent = 'せいかいは、';
+    document.getElementById('js-correct-num').textContent = correctAnswer;
+    document.getElementById('js-next').classList.remove('display-none');
+  } else if (buttonText === correctAnswer && count === total) {
+    correctAudio.play();
+    document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
+
+    // 最終点数表示
+    document.getElementById('js-final').textContent = ` あなたのてんすうは ${totalPoint} です 🎉`;
+    document.getElementById('js-new').classList.remove('display-none');
+  } else if (buttonText !== correctAnswer && count === total) {
+    incorrectAudio.play();
     document.getElementById('js-result').textContent = 'ざんねん 😢';
     document.getElementById('js-correct').textContent = 'せいかいは、';
     document.getElementById('js-correct-num').textContent = correctAnswer;
 
-    incorrectAudio.play();
-    document.getElementById('js-next').classList.remove('display-none');
+    // 最終点数表示
+    document.getElementById('js-final').textContent = `あなたのてんすうは ${totalPoint} です 🎉`;
+    document.getElementById('js-new').classList.remove('display-none');
   }
 
   // ボタンを押せなくする
@@ -78,6 +109,9 @@ function nextProblem() {
   document.getElementById('js-correct').textContent = '';
   document.getElementById('js-correct-num').textContent = '';
 
+  // 出題数のカウント
+  count++;
+
   buttons.forEach((button) => {
     button.classList.remove('answer-button');
   });
@@ -86,6 +120,24 @@ function nextProblem() {
   // buttons.forEach((e) => {
   //   e.classList.toggle('pointer-none');
   // });
+
+  displayProblem();
+}
+
+// ボタンを押したとき
+function newProblem() {
+  document.getElementById('js-result').textContent = '';
+  document.getElementById('js-new').classList.add('display-none');
+  document.getElementById('js-final').textContent = '';
+  document.getElementById('js-correct').textContent = '';
+  document.getElementById('js-correct-num').textContent = '';
+
+  // 出題数のリセット
+  count = 1;
+
+  buttons.forEach((button) => {
+    button.classList.remove('answer-button');
+  });
 
   displayProblem();
 }

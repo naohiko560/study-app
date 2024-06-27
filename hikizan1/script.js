@@ -15,7 +15,7 @@ let buttonText = 0;
 // 解いた問題数
 // let count = 0;
 
-// 全何問出すかを設定
+// 問題数を設定
 let total = 5;
 
 // 音声ファイルの初期化
