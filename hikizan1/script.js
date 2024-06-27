@@ -76,9 +76,9 @@ function checkAnswer() {
   }
 
   // ボタンを押せなくする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   // 残りの問題数を表示
   // document.getElementById('js-count').textContent = `残り：${count} / ${total}`;
@@ -97,9 +97,9 @@ function nextProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  })
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // })
 
   displayProblem();
 }

@@ -65,9 +65,9 @@ function checkAnswer() {
   }
 
   // ボタンを押せなくする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
 }
 
@@ -83,9 +83,9 @@ function nextProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   displayProblem();
 }
