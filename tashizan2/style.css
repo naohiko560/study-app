@@ -37,6 +37,15 @@
   border-radius: 10px;
 }
 
+.button.js-checkAnswer {
+  width: 95px;
+}
+
+.js-checkAnswer {
+  padding: 10px;
+  font-size: 30px;
+}
+
 .pointer-none {
   pointer-events: none;
 }
@@ -55,11 +64,6 @@
 
 .button-lists {
   margin-top: 20px;
-}
-
-.js-checkAnswer {
-  padding: 10px 40px;
-  font-size: 30px;
 }
 
 .result {
