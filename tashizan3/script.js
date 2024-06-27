@@ -18,16 +18,16 @@ const incorrectAudio = new Audio('../sounds/incorrect.mp3');
 
 // 2つの数字をランダムに生成
 function generateNumbers() {
-  num1 = Math.floor(Math.random() * 11);
-  num2 = Math.floor(Math.random() * 11);
+  num1 = Math.floor(Math.random() * 21);
+  num2 = Math.floor(Math.random() * 21);
 }
 
 // 問題文の表示
 function displayProblem() {
   generateNumbers();
 
-  // 前回と同じ問題、または数字の和が10より大きいなら再生成
-  while ((num1 === prevNum1 && num2 === prevNum2) || num1 + num2 > 10) {
+  // 前回と同じ問題、または数字の和が20より大きいなら再生成
+  while ((num1 === prevNum1 && num2 === prevNum2) || num1 + num2 > 20) {
     generateNumbers();
   }
 
