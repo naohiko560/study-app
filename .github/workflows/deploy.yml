@@ -1,19 +1,34 @@
-# on:
-#   push:
-#     branches:
-#       - main
-# name: StudyAppDeploy
-# jobs:
-#   FTP-Deploy-Action:
-#     name: FTP-Deploy-Action
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@main
-#       - name: FTP-Deploy-Action
-#         uses: SamKirkland/FTP-Deploy-Action@2.0.0
-#         env:
-#           FTP_SERVER: ${{ secrets.FTP_SERVER }}
-#           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-#           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-#           LOCAL_DIR: ./
-#           REMOTE_DIR: /デプロイ対象のサイト/public_html/
+on:
+  push:
+    branches:
+      - main
+name: StudyAppDeploy
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    # environment: 
+    #   name: production  # 環境名を指定（記載しないとSecretを取得不可）
+    steps:
+      - uses: actions/checkout@main
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: ./
+          REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .gitignore
+            package.json
+            yarn.lock
+            **/node_modules/**
+            .composer.lock
+            .composer.json
+            **/vendor/**
+            **/src/**
+            .vscode/**
+            README.md
