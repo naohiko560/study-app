@@ -7,8 +7,8 @@ jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
-    # environment: 
-    #   name: production  # 環境名を指定（記載しないとSecretを取得不可）
+    environment:
+      name: production
     steps:
       - uses: actions/checkout@main
       - name: FTP-Deploy-Action
@@ -18,7 +18,7 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           LOCAL_DIR: ./
-          REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+          REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
           exclude: |
             **/.git*
             **/.git*/**
