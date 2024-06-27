@@ -2,6 +2,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '!**/.git*'
+      - '!**/.git*/**'
+      - '!README.md'
 name: StudyAppDeploy
 jobs:
   FTP-Deploy-Action:
@@ -22,6 +26,7 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
+            README.md
             .gitignore
             package.json
             yarn.lock
@@ -31,4 +36,3 @@ jobs:
             **/vendor/**
             **/src/**
             .vscode/**
-            README.md
