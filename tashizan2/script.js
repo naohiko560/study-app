@@ -21,9 +21,6 @@ let correctCount = 0;
 // 問題数を設定
 let total = 5;
 
-// 最終点数
-let totalPoint = parseInt(correctCount / total);
-
 // 音声ファイルの初期化
 const correctAudio = new Audio('../sounds/correct.mp3');
 const incorrectAudio = new Audio('../sounds/incorrect.mp3');
@@ -81,9 +78,11 @@ function checkAnswer() {
   } else if (buttonText === correctAnswer && count === total) {
     correctAudio.play();
     document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
+    correctCount++;
 
     // 最終点数表示
-    document.getElementById('js-final').textContent = ` あなたのてんすうは ${totalPoint} です 🎉`;
+    const totalPoint = (correctCount / total) * 100;
+    document.getElementById('js-final').textContent = ` あなたのてんすうは ${totalPoint} てん 🎉`;
     document.getElementById('js-new').classList.remove('display-none');
   } else if (buttonText !== correctAnswer && count === total) {
     incorrectAudio.play();
@@ -92,7 +91,8 @@ function checkAnswer() {
     document.getElementById('js-correct-num').textContent = correctAnswer;
 
     // 最終点数表示
-    document.getElementById('js-final').textContent = `あなたのてんすうは ${totalPoint} です 🎉`;
+    const totalPoint = (correctCount / total) * 100;
+    document.getElementById('js-final').textContent = `あなたのてんすうは ${totalPoint} てん 🎉`;
     document.getElementById('js-new').classList.remove('display-none');
   }
 
@@ -124,13 +124,14 @@ function nextProblem() {
   displayProblem();
 }
 
-// ボタンを押したとき
+// もういちどボタンを押したとき
 function newProblem() {
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-new').classList.add('display-none');
   document.getElementById('js-final').textContent = '';
   document.getElementById('js-correct').textContent = '';
   document.getElementById('js-correct-num').textContent = '';
+  correctCount = 0;
 
   // 出題数のリセット
   count = 1;
