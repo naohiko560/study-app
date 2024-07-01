@@ -3,10 +3,7 @@ on:
     branches:
       - main
     paths:
-      - '**/**/**'
-      - '!**/.git*'
-      - '!**/.git*/**'
-      - '!README.md'
+      - 'app/**'
 name: StudyAppDeploy
 jobs:
   FTP-Deploy-Action:
@@ -22,18 +19,5 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: ./
+          LOCAL_DIR: app/
           REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            README.md
-            .gitignore
-            package.json
-            yarn.lock
-            **/node_modules/**
-            .composer.lock
-            .composer.json
-            **/vendor/**
-            **/src/**
-            .vscode/**
