@@ -24,6 +24,7 @@ let total = 5;
 // 音声ファイルの設定
 const correctAudio = '../sounds/correct.mp3';
 const incorrectAudio = '../sounds/incorrect.mp3';
+const startAudio = '../sounds/start.mp3';
 
 // 音を再生する関数
 function playSound(src) {
@@ -139,6 +140,7 @@ function nextProblem() {
 
 // 「もういちどボタン」を押したとき
 function newProblem() {
+  playSound(startAudio);
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-new').classList.add('display-none');
   document.getElementById('js-final').textContent = '';
