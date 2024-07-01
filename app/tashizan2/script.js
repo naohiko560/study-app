@@ -6,7 +6,7 @@ let num2 = 0;
 let prevNum1 = 0;
 let prevNum2 = 0;
 
-// ボタンの数を取得
+// ボタンの要素を取得
 const buttons = document.querySelectorAll('.js-checkAnswer');
 
 // 押したボタンの数字を定義
@@ -124,7 +124,7 @@ function nextProblem() {
   displayProblem();
 }
 
-// もういちどボタンを押したとき
+// 「もういちどボタン」を押したとき
 function newProblem() {
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-new').classList.add('display-none');

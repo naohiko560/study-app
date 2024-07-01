@@ -13,8 +13,7 @@
     <a href="../">
       <img src="../images/home.png" alt="ホームに戻る">
     </a>
-    <h1 class="h-l">ひきざんゲーム かんたん</h1>
-    <!-- <p class="total">全5問</p> -->
+    <h1 class="h-l">ひきざんゲーム かんたん<span id="js-total" class="total"></span></h1>
   </header>
   <div class="main">
     <div class="problem" id="js-problem"></div>
@@ -34,7 +33,8 @@
     <p class="correct" id="js-correct"></p>
     <p class="correct-num" id="js-correct-num"></p>
     <button class="button display-none next" id="js-next" onclick="nextProblem()">つぎのもんだい</button>
-    <p id="js-count"></p>
+    <p id="js-final"></p>
+    <button class="button display-none new" id="js-new" onclick="newProblem()">もういちどちょうせん</button>
   </div>
 
   <script src="script.js"></script>
