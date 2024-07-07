@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.header a img{
+.header a img {
   width: 50px;
   max-width: 100%;
   display: block;
@@ -21,6 +21,12 @@
   margin-left: 10px;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.total {
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .main {
