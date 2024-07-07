@@ -39,6 +39,11 @@ function generateNumbers() {
 }
 // 問題文の表示
 function displayProblem() {
+
+  // スタート音を再生
+  playSound(startAudio);
+
+  // 2つの数字をランダムに生成
   generateNumbers();
 
   // 問題数の表示
@@ -140,7 +145,6 @@ function nextProblem() {
 
 // 「もういちどボタン」を押したとき
 function newProblem() {
-  playSound(startAudio);
   document.getElementById('js-result').textContent = '';
   document.getElementById('js-new').classList.add('display-none');
   document.getElementById('js-final').textContent = '';
