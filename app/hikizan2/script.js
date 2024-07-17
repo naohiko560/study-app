@@ -109,9 +109,9 @@ function checkAnswer() {
   }
 
   // ボタンを押せなくする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 }
 
 // 次の問題を表示を押したとき
@@ -129,9 +129,9 @@ function nextProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   displayProblem();
 }
@@ -153,9 +153,9 @@ function newProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   displayProblem();
 }
