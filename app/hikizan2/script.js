@@ -48,8 +48,13 @@ function displayProblem() {
   // 問題数の表示
   document.getElementById('js-total').textContent = `もんだいすう ${count} / ${total}`;
 
-  // 前回と同じ問題、または答えがマイナスなら再生成
-  while ((num1 === prevNum1 && num2 === prevNum2) || num1 - num2 < 0) {
+  // 前回と同じ問題、または答えがマイナス、または右の数字が0、または両辺の数が同じなら再生成
+  while (
+    (num1 === prevNum1 && num2 === prevNum2) ||
+    num1 - num2 < 0 ||
+    num2 === 0 ||
+    num1 === num2
+  ) {
     generateNumbers();
   }
 
