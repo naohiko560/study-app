@@ -159,6 +159,11 @@ function newProblem() {
     button.classList.remove('answer-button');
   });
 
+  // ボタンを押せるようにする
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
+
   displayProblem();
 }
 

@@ -34,9 +34,10 @@ function playSound(src) {
 
 // 2つの数字をランダムに生成
 function generateNumbers() {
-  num1 = Math.floor(Math.random() * 11);
-  num2 = Math.floor(Math.random() * 11);
+  num1 = Math.floor(Math.random() * 18);
+  num2 = Math.floor(Math.random() * 18);
 }
+
 // 問題文の表示
 function displayProblem() {
   // スタート音を再生
@@ -48,8 +49,8 @@ function displayProblem() {
   // 問題数の表示
   document.getElementById('js-total').textContent = `もんだいすう ${count} / ${total}`;
 
-  // 前回と同じ問題、または答えがマイナスなら再生成
-  while ((num1 === prevNum1 && num2 === prevNum2) || num1 - num2 < 0) {
+  // 前回と同じ問題、または答えがマイナス、または9より大きい、または2未満なら再生成
+  while ((num1 === prevNum1 && num2 === prevNum2) || 9 < num1 - num2 || num1 - num2 < 2) {
     generateNumbers();
   }
 
@@ -109,9 +110,9 @@ function checkAnswer() {
   }
 
   // ボタンを押せなくする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 }
 
 // 次の問題を表示を押したとき
@@ -129,9 +130,9 @@ function nextProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   displayProblem();
 }
@@ -153,9 +154,9 @@ function newProblem() {
   });
 
   // ボタンを押せるようにする
-  buttons.forEach((e) => {
-    e.classList.toggle('pointer-none');
-  });
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
 
   displayProblem();
 }

@@ -21,9 +21,16 @@ let correctCount = 0;
 // 問題数を設定
 let total = 5;
 
-// 音声ファイルの初期化
-const correctAudio = new Audio('../sounds/correct.mp3');
-const incorrectAudio = new Audio('../sounds/incorrect.mp3');
+// 音声ファイルの設定
+const correctAudio = '../sounds/correct.mp3';
+const incorrectAudio = '../sounds/incorrect.mp3';
+const startAudio = '../sounds/start.mp3';
+
+// 音を再生する関数
+function playSound(src) {
+  const audio = new Audio(src);
+  audio.play();
+}
 
 // 2つの数字をランダムに生成
 function generateNumbers() {
@@ -33,6 +40,10 @@ function generateNumbers() {
 
 // 問題文の表示
 function displayProblem() {
+  // スタート音を再生
+  playSound(startAudio);
+
+  // 2つの数字をランダムに生成
   generateNumbers();
 
   // 問題数の表示
@@ -65,18 +76,20 @@ function checkAnswer() {
   const correctAnswer = num1 + num2;
 
   if (buttonText === correctAnswer && count < total) {
-    correctAudio.play();
+    playSound(correctAudio);
+
     document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     document.getElementById('js-next').classList.remove('display-none');
     correctCount++;
   } else if (buttonText !== correctAnswer && count < total) {
-    incorrectAudio.play();
+    playSound(incorrectAudio);
+    
     document.getElementById('js-result').textContent = 'ざんねん 😢';
     document.getElementById('js-correct').textContent = 'せいかいは、';
     document.getElementById('js-correct-num').textContent = correctAnswer;
     document.getElementById('js-next').classList.remove('display-none');
   } else if (buttonText === correctAnswer && count === total) {
-    correctAudio.play();
+    playSound(correctAudio);
     document.getElementById('js-result').textContent = 'せいかい！よくできました 🎉';
     correctCount++;
 
@@ -85,7 +98,7 @@ function checkAnswer() {
     document.getElementById('js-final').textContent = ` あなたのてんすうは ${totalPoint} てん 🎉`;
     document.getElementById('js-new').classList.remove('display-none');
   } else if (buttonText !== correctAnswer && count === total) {
-    incorrectAudio.play();
+    playSound(incorrectAudio);
     document.getElementById('js-result').textContent = 'ざんねん 😢';
     document.getElementById('js-correct').textContent = 'せいかいは、';
     document.getElementById('js-correct-num').textContent = correctAnswer;
@@ -140,6 +153,11 @@ function newProblem() {
     button.classList.remove('answer-button');
   });
 
+  // ボタンを押せるようにする
+  // buttons.forEach((e) => {
+  //   e.classList.toggle('pointer-none');
+  // });
+  
   displayProblem();
 }
 

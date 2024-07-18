@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>たしざんゲーム むずかしい</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/keisan.css">
 </head>
 
 <body class="body">
@@ -13,27 +13,12 @@
     <a href="../">
       <img src="../images/home.png" alt="ホームに戻る">
     </a>
-    <h1 class="h-l">たしざんゲーム むずかしい</h1>
+    <h1 class="h-l">たしざんゲーム むずかしい<span id="js-total" class="total"></span></h1>
   </header>
   <div class="main">
     <div class="problem" id="js-problem"></div>
     <div class="button-lists">
       <div class="button-list">
-        <button class="button js-checkAnswer">0</button>
-        <button class="button js-checkAnswer">1</button>
-        <button class="button js-checkAnswer">2</button>
-        <button class="button js-checkAnswer">3</button>
-        <button class="button js-checkAnswer">4</button>
-      </div>
-      <div class="button-list">
-        <button class="button js-checkAnswer">5</button>
-        <button class="button js-checkAnswer">6</button>
-        <button class="button js-checkAnswer">7</button>
-        <button class="button js-checkAnswer">8</button>
-        <button class="button js-checkAnswer">9</button>
-      </div>
-      <div class="button-list">
-        <button class="button js-checkAnswer">10</button>
         <button class="button js-checkAnswer">11</button>
         <button class="button js-checkAnswer">12</button>
         <button class="button js-checkAnswer">13</button>
@@ -44,14 +29,14 @@
         <button class="button js-checkAnswer">16</button>
         <button class="button js-checkAnswer">17</button>
         <button class="button js-checkAnswer">18</button>
-        <button class="button js-checkAnswer">19</button>
-        <button class="button js-checkAnswer">20</button>
       </div>
     </div>
     <p class="result" id="js-result"></p>
     <p class="correct" id="js-correct"></p>
     <p class="correct-num" id="js-correct-num"></p>
     <button class="button display-none next" id="js-next" onclick="nextProblem()">つぎのもんだい</button>
+    <p id="js-final"></p>
+    <button class="button display-none new" id="js-new" onclick="newProblem()">もういちどちょうせん</button>
   </div>
 
   <script src="script.js"></script>

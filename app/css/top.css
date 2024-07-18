@@ -1,6 +1,6 @@
 .body {
   font-family: Arial, sans-serif;
-  width: 700px;
+  width: 900px;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.header a img{
+.header a img {
   width: 50px;
   max-width: 100%;
   display: block;
@@ -29,19 +29,21 @@
 }
 
 .lists {
-  margin-top: 50px;
+  margin-top: 10px;
   text-align: center;
+  padding-left: 0;
+  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .list {
-  max-width: 520px;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 30px;
+  font-size: 24px;
   list-style: none;
 }
 
-.list:nth-child(n + 2) {
+.list:nth-child(n + 4) {
   margin-top: 15px;
 }
 

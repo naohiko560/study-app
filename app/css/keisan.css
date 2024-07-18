@@ -23,10 +23,6 @@
   margin-top: 0;
 }
 
-.total {
-  margin-left: 10px;
-}
-
 .main {
   text-align: center;
 }
@@ -39,15 +35,6 @@
   border: none;
   cursor: pointer;
   border-radius: 10px;
-}
-
-.button.js-checkAnswer {
-  width: 95px;
-}
-
-.js-checkAnswer {
-  padding: 10px;
-  font-size: 30px;
 }
 
 .pointer-none {
@@ -66,26 +53,41 @@
   font-size: 60px;
 }
 
-.button-lists {
-  margin-top: 20px;
+.js-checkAnswer {
+  padding: 10px 40px;
+  font-size: 30px;
 }
 
 .result {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 24px;
+  line-height: 1;
 }
 
 .correct {
-  margin: 0;
-  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 1;
 }
 
-.next {
-  font-size: 30px;
+.button.next {
+  font-size: 20px;
+  margin-top: 0;
 }
 
 .correct-num {
-  font-size: 60px;
+  font-size: 50px;
   margin: 0;
+  line-height: 1;
+}
+
+#js-final {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button.new {
+  margin-top: 0;
 }
